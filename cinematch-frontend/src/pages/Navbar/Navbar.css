@@ -1,0 +1,128 @@
+/* navbar.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  padding: 0 50px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Modern Buzlu Cam Efekti */
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+  /* Alt sınır: Çizgi yerine zarif bir ışık */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Sol Taraf: Logo */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-logo-img {
+  height: 60px; /* Önceki 35px'ten daha büyük bir değer */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.navbar-logo-img:hover {
+  transform: scale(1.1); /* Hover'da hafifçe büyüsün */
+  filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.8)); /* Parlak kırmızı gölge */
+}
+
+/* Sağ Taraf: Linkler */
+.navbar-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar-links li {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #cccccc; /* Pasif renk: Açık gri */
+  cursor: pointer;
+  position: relative; /* Nokta konumlandırması için şart */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 5px 0;
+}
+
+.navbar-links li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Hover (Üzerine Gelme) */
+.navbar-links li:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* 🔥 ACTIVE STATE (Seçili Sayfa) 🔥 */
+.navbar-links li.active {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(255, 75, 75, 0.6); /* Kırmızı parlama */
+}
+
+/* Active Noktası (Dot Indicator) */
+.navbar-links li.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  
+  background-color: #ff4b4b; /* Netflix kırmızısı */
+  box-shadow: 0 0 10px #ff4b4b, 0 0 20px #ff4b4b; /* Neon ışığı */
+  
+  animation: dotPulse 2s infinite ease-in-out;
+}
+
+/* Noktanın nefes alma animasyonu */
+@keyframes dotPulse {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50% { transform: translateX(-50%) scale(1.4); opacity: 0.6; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    height: 70px;
+  }
+  
+  .navbar-links {
+    gap: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .navbar-logo-img {
+    height: 35px;
+  }
+}

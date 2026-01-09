@@ -1,0 +1,149 @@
+/* Favourites.css */
+.fav-page-wrapper {
+  min-height: 100vh;
+  background: #080808;
+  color: white;
+}
+
+.favorites-container {
+  padding: 120px 5% 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fav-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.favorites-title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #777 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.fav-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Tabs */
+.fav-tabs {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px;
+  border-radius: 16px;
+  margin-top: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.fav-tabs button {
+  padding: 10px 35px;
+  border: none;
+  background: transparent;
+  color: #777;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.fav-tabs button.active {
+  background: #e50914;
+  color: white;
+  box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+}
+
+/* Remove Icon Upgrade */
+.remove-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(229, 9, 20, 0.85);
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.movie-card:hover .remove-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.remove-badge:hover {
+  background: #ff0000;
+  transform: scale(1.1) !important;
+}
+
+/* Modal Enhancements */
+.modal-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(0, 255, 100, 0.1);
+  color: #00ff6a;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0, 255, 100, 0.2);
+}
+
+.modal-description {
+  line-height: 1.6;
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 0, 0, 0.2);
+  border-color: #ff0000;
+}
+
+/* Empty State */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 100px 0;
+  color: #444;
+  font-size: 1.2rem;
+  border: 2px dashed rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
