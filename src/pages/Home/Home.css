@@ -1,0 +1,94 @@
+/* home.css */
+.home-hero {
+  position: relative;
+  height: 100vh;
+  /* Arka plana sinematik bir siyah degrade ekledim */
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%),
+              url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
+/* Artık CSS background'da hallettiğimiz için overlay'i basitleştirebiliriz veya kaldırabilirsin */
+.home-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
+}
+
+.home-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  padding: 40px;
+  /* İçeriğin arkasına çok hafif bir cam koydum ki yazı her fotoğrafta okunsun */
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+}
+
+.home-title {
+  font-size: 4rem; /* Biraz daha büyük ve iddialı */
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+  /* Yazıya hafif degrade */
+  background: linear-gradient(180deg, #ffffff 0%, #a5a5a5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.home-tagline {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: #e0e0e0;
+  font-weight: 300;
+}
+
+.home-quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 20px 0 40px 0;
+  color: #bbb;
+  border-left: 3px solid #e50914;
+  padding-left: 15px;
+  display: inline-block;
+}
+
+.home-start-btn {
+  background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+  border: none;
+  padding: 16px 48px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+  letter-spacing: 0.5px;
+}
+
+.home-start-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(229, 9, 20, 0.6);
+  filter: brightness(1.1);
+}
+
+.home-start-btn:active {
+  transform: translateY(1px);
+}
+
+/* Animations */
+.fade-in { opacity: 1; transition: opacity 0.6s ease-out; }
+.fade-out { opacity: 0; transition: opacity 0.6s ease-out; }

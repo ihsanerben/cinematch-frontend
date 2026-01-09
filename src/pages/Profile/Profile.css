@@ -1,0 +1,120 @@
+.profile-container {
+  min-height: 100vh;
+  /* Daha derin bir arka plan */
+  background: radial-gradient(circle at top, #1a0505 0%, #000000 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px; /* Navbar payı */
+  padding-bottom: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-card {
+  background: rgba(20, 20, 20, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 50px 40px;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  animation: fadeIn 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Kartın üstüne hafif kırmızı bir ışık vuralım */
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 0, 0, 0.3);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-email {
+  color: #bbb;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-joined {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.quote-box {
+  background: rgba(255, 75, 75, 0.1);
+  padding: 20px;
+  border-radius: 16px;
+  color: #e0e0e0;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  border-left: 3px solid #ff4b4b;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-box h3 {
+  color: #ff4b4b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+
+.logout-btn {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid #ff4b4b;
+  border-radius: 50px;
+  color: #ff4b4b;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.logout-btn:hover {
+  background: #ff4b4b;
+  color: white;
+  box-shadow: 0 5px 20px rgba(255, 75, 75, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
