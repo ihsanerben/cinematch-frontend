@@ -10,7 +10,7 @@ const Profile = () => {
   const [randomQuote, setRandomQuote] = useState("");
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUser = async () => { 
       try {
         const res = await api.get("/auth/me");
         setUser(res.data);
@@ -52,7 +52,10 @@ const Profile = () => {
           </div>
         ) : (
           <div className="profile-card">
+            {console.log(user)}
+            
             <h2 className="profile-name">{user.name}</h2>
+            <h2 className="profile-bbirth">{user.birthDate}</h2>
             <p className="profile-email">{user.email}</p>
 
             <p className="profile-joined">

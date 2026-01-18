@@ -8,6 +8,7 @@ import Navbar from "../Navbar/Navbar";
 const Recommendations = () => {
   const [blocks, setBlocks] = useState([]);
   const [favoriteIds, setFavoriteIds] = useState([]);
+  const [seriesFavoriteIds, setSeriesFavoriteIds] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const [notice, setNotice] = useState("");
@@ -22,9 +23,14 @@ const Recommendations = () => {
     const fetchFavorites = async () => {
       if (!isLoggedIn) return;
       try {
-        const res = await api.get("/favorites/movie");
-        const ids = (res.data || []).map((f) => f.contentId);
-        setFavoriteIds(ids);
+        const [movieRes, serieRes] = await Promise.all([
+          api.get("/favorites/movie"),
+          api.get("/favorites/serie"),
+        ]);
+        const movieIds = (movieRes.data || []).map((f) => f.contentId);
+        const serieIds = (serieRes.data || []).map((f) => f.contentId);
+        setFavoriteIds(movieIds);
+        setSeriesFavoriteIds(serieIds);
       } catch (err) {
         console.error("Favoriler alınamadı:", err);
       }
@@ -58,7 +64,7 @@ const Recommendations = () => {
 
   // BACKEND'DEN ÖNERİLERİ ÇEK
   const fetchRecommendations = async () => {
-    if (favoriteIds.length === 0) {
+    if (favoriteIds.length + seriesFavoriteIds.length === 0) {
       setNotice(
         "You haven't selected a series or movie yet. Please select one. You are being redirected to the movies/series page."
       );

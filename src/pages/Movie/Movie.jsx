@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaThumbsUp, FaBars } from "react-icons/fa";
-import "./Movie.css";
+import "./MovieSeries.css";
 import Navbar from "../Navbar/Navbar.jsx";
 import api from "../../api/axios";
 
@@ -13,7 +13,7 @@ const Movie = () => {
   const [sortOption, setSortOption] = useState("highestRated");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const itemsPerPage = 20;
+  const itemsPerPage = 10;
   const isLoggedIn = !!localStorage.getItem("token");
 
   const formatDate = (item) => {
@@ -74,6 +74,20 @@ const Movie = () => {
         setLoading(false);
       }
     };
+
+
+    const getMovies = async () => {
+      if (!isLoggedIn) return;
+      try {
+        const res = await api.get("/favorites/movie"); // FavoriteResponseMovie[]
+        const ids = (res.data || []).map((f) => f.contentId); // backend'de contentId = movie.id
+        setFavoriteIds(ids);
+      } catch (err) {
+        console.log("Favoriler alınamadı:", err);
+      }
+    };
+
+
 
     const fetchFavorites = async () => {
       if (!isLoggedIn) return;
