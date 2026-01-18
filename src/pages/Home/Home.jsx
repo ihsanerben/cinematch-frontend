@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import quotesData from "../../data/welcome.json";
 
 export default function Home() {
+
+
+  
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -43,6 +46,8 @@ export default function Home() {
     else navigate("/recommendations");
   };
 
+  
+
   return (
     <>
       <Navbar />
@@ -52,7 +57,8 @@ export default function Home() {
 
         <div className="home-content">
           <h1 className="home-title">
-            <p  >Welcome to CineMatch🎬</p>
+            <p  >Welcome to CineMatch🎬 
+            </p>
             <p
               style={{
                 fontSize: 15,

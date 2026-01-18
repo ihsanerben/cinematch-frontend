@@ -143,6 +143,7 @@ const OldRecommendations = () => {
             <section key={index} className="history-group">
               <h2 className="history-section-title">
                 {tab === "movies" ? "🎬" : "📺"} Because you liked{" "}
+                
                 <span>{group.basedOnTitle}</span>
               </h2>
 

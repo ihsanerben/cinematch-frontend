@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaThumbsUp, FaBars } from "react-icons/fa";
-import "./Series.css";
+import "../Movie/MovieSeries.css";
 import Navbar from "../Navbar/Navbar.jsx";
 import api from "../../api/axios";
 
@@ -13,7 +13,7 @@ const Series = () => {
   const [sortOption, setSortOption] = useState("highestRated");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
+  const itemsPerPage = 10;
 
   const isLoggedIn = !!localStorage.getItem("token");
 
